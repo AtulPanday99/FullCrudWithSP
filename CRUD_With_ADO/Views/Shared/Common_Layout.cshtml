@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Content/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/js/jquery-3.7.1.min.js"></script>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row" style="min-height:800px;background-color:aliceblue;">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10" style="min-height:400px;background-color:lightgrey;padding-top:30px;padding-bottom:30px;">
+                <div class="row menu">
+                    <div class="col-sm-12 bg-dark text-white">
+                        @Html.ActionLink("Add New Customer", "SignUp", new { @class = "nav-link active" })
+                        @Html.ActionLink("Show All Customer", "ShowAll", new { @class = "nav-link active" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12" style="background-color:#4e64e2c3;min-height:300px;">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+</body>
+</html>

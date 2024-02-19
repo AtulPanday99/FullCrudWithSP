@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/Common_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6" style="background-color: #c58252; padding-top: 30px; padding-bottom: 30px; min-height: 400px; margin-top: 20px; margin-bottom: 20px; border-radius: 10px;">
+        <h1 class="text-center text-white">Customer Registration</h1>
+        <hr />
+        <p class="bg-white h3 text-center">@ViewBag.Message</p>
+        <form action="/Home/SignUp" method="post" enctype="multipart/form-data">
+            <input type="text" name="Name" placeholder="Name" class="form-control"/><br />
+            <span class="form-control">
+               Gender: <input type="radio" name="Gender" value="Male" />Male
+               <input type="radio" name="Gender" value="Female" />Female
+            </span><br />
+                   <select name="City" class="form-control">
+                       <option value="">Select City</option>
+                       <option>Varansi</option>
+                       <option>Mirzapur</option>
+                       <option>Lucknow</option>
+                       <option>Chitrakoot</option>
+                       <option>Jhansi</option>
+                   </select><br />
+            <input type="email" name="EmailId" placeholder="example@gmail.com" class="form-control" /><br />
+            <input type="number" name="MobileNo" placeholder="Mobile Number" class="form-control" /><br />
+            <textarea name="Address" placeholder="Address" class="form-control"></textarea><br />
+            <span class="form-control">Select Picture:
+              <input type="file" name="CustPic" />
+            </span><br />
+                   <div class="row text-center">
+                       <div class="col-sm-6">
+                           <input type="submit" value="Register Now" class="btn btn-primary" />
+                       </div>
+                       <div class="col-sm-6">
+                           <input type="reset" value="Clear All" class="btn btn-danger" />
+                       </div>
+                   </div>
+        </form>
+    </div>
+    <div class="col-sm-3"></div>
+</div>
+

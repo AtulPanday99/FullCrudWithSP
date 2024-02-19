@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "ShowAll";
+    Layout = "~/Views/Shared/Common_Layout.cshtml";
+}
+@using CRUD_With_ADO.Models;
+@model IEnumerable<Customer>
+
+<div class="row" style="margin-top:20px;margin-bottom:20px;min-height:400px;">
+    <div class="col-sm-12">
+        <h2 class="text-center"> Record of All Customer</h2>
+        <hr>
+        <p class="text-center bg-warning h5">@TempData["msg"]</p>
+        <table class="table table-bordered table-striped" style="background-color:white;">
+            <tr class="text-center">
+                <th>Sno</th>
+                <th>CId</th>
+                <th>Name</th>
+                <th>Picture</th>
+                <th>Gender</th>
+                <th>City</th>
+                <th>Email Id</th>
+                <th>Mobile Number</th>
+                <th>Address</th>
+                <th>Registered On</th>
+                <th colspan="2">Manage</th>
+            </tr>
+            @{ 
+                int sno = 1;
+                foreach(Customer c in Model)
+                {
+                        <tr>
+                            <td>@sno</td>
+                            <td>@c.CustId</td>
+                            <td>@c.Name</td>
+                            <td><img src="~/Content/UserPics/@c.PictueFileName" style="width:80px;height:80px;"></td>
+                            <td>@c.Gender</td>
+                            <td>@c.City</td>
+                            <td>@c.EmailId</td>
+                            <td>@c.MobileNo</td>
+                            <td>@c.Address</td>
+                            <td>@c.RegisteredOnDT</td>
+                            <td>
+                                @Html.ActionLink("Edit", "EditCust", new { cid = c.CustId })
+                            </td>
+                            <td>
+                                @Html.ActionLink("Delete","DeleteCust", new { cid = c.CustId })
+                            </td>
+                        </tr>
+                    sno++;
+                }
+            }
+        </table>
+    </div>
+</div>
+
